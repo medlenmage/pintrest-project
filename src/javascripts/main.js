@@ -1,4 +1,15 @@
+import firebase from 'firebase/app';
+import apiKeys from './helpers/apiKeys.json';
 import 'bootstrap';
 import '../styles/main.scss';
+import auth from './components/auth/auth';
+import sign from './helpers/data/authData';
 
-console.error('lets go boys');
+const init = () => {
+  firebase.initializeApp(apiKeys.firebaseConfig);
+  auth.signInEvent();
+  auth.logoutEvent();
+  sign.checkLoginStatus();
+};
+
+init();
