@@ -1,17 +1,17 @@
 {
   "Board 1" :{
     "name" :"Star Wars memes",
-    "id" :"",
-    "userId" :""
+    "id" :"2468",
+    "userId" :"dsN6vxguXnTcWwq6oDvUu3aRImS2"
   },
   "Board 2" :{
     "name" :"LOTR Memes",
-    "id" :"",
-    "userId" :""
+    "id" :"54321",
+    "userId" :"dsN6vxguXnTcWwq6oDvUu3aRImS2"
   },
-  "Board 31" :{
+  "Board 3" :{
     "name" :"Uncle Iroh Memes",
-    "id" :"",
-    "userId" :""
+    "id" :"12345",
+    "userId" :"dsN6vxguXnTcWwq6oDvUu3aRImS2"
   }
 }
