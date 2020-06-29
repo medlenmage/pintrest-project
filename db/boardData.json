@@ -1,90 +1,17 @@
 {
-  "board 1" :{
-    "pin 1" :{
-      "name" :"Good vs Evil",
-      "description":"The battle between good and evil",
-      "imgUrl" :"https://i.insider.com/5d939b7c2e22af3f532014c8?width=1100&format=jpeg&auto=webp"
-    },
-    "pin 2" :{
-      "name" :"Chewy by Loreal",
-      "description":"Even chewy keeps his hair silky and smooth!",
-      "imgUrl" :"https://i.ebayimg.com/images/g/EAYAAOSwnMdeStIV/s-l300.jpg"
-    },
-    "pin 3" :{
-      "name" :"Kenobi Montoya",
-      "description":"My name is Obi Wan Kenobi. You killed my father now prepare to die!",
-      "imgUrl" :"https://66.media.tumblr.com/a9ae04f4ee324ce0beab2340d37f5662/tumblr_oq0vvtiZ7Y1vgg2bmo1_1280.png"
-    },
-    "pin 4" :{
-      "name" :"The High Ground of greater knowledge",
-      "description":"I am one with the high ground",
-      "imgUrl" :"https://i.pinimg.com/originals/9e/1b/ac/9e1baceaac86df2d270002a90ff73367.png"
-    }
+  "Board 1" :{
+    "name" :"Star Wars memes",
+    "id" :"",
+    "userId" :""
   },
-  "board 2" :{
-    "pin 1" :{
-      "name" :"",
-      "description":"",
-      "imgUrl" :""
-    },
-    "pin 2" :{
-      "name" :"",
-      "description":"",
-      "imgUrl" :""
-    },
-    "pin 3" :{
-      "name" :"",
-      "description":"",
-      "imgUrl" :""
-    },
-    "pin 4" :{
-      "name" :"",
-      "description":"",
-      "imgUrl" :""
-    }
+  "Board 2" :{
+    "name" :"LOTR Memes",
+    "id" :"",
+    "userId" :""
   },
-  "board 3" :{
-    "pin 1" :{
-      "name" :"",
-      "description":"",
-      "imgUrl" :""
-    },
-    "pin 2" :{
-      "name" :"",
-      "description":"",
-      "imgUrl" :""
-    },
-    "pin 3" :{
-      "name" :"",
-      "description":"",
-      "imgUrl" :""
-    },
-    "pin 4" :{
-      "name" :"",
-      "description":"",
-      "imgUrl" :""
-    }
-  },
-  "board 4" :{
-    "pin 1" :{
-      "name" :"",
-      "description":"",
-      "imgUrl" :""
-    },
-    "pin 2" :{
-      "name" :"",
-      "description":"",
-      "imgUrl" :""
-    },
-    "pin 3" :{
-      "name" :"",
-      "description":"",
-      "imgUrl" :""
-    },
-    "pin 4" :{
-      "name" :"",
-      "description":"",
-      "imgUrl" :""
-    }
+  "Board 31" :{
+    "name" :"Uncle Iroh Memes",
+    "id" :"",
+    "userId" :""
   }
 }
