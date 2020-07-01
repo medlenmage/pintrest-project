@@ -2,19 +2,16 @@
   "board1": {
     "name": "starWarsMemes",
     "description": "This is a board filled with star wars memes",
-    "id": "2468",
     "userId": "dsN6vxguXnTcWwq6oDvUu3aRImS2"
   },
   "board2": {
     "name": "lotrMemes",
     "description": "This is a board filled with LOTR memes",
-    "id": "54321",
     "userId": "dsN6vxguXnTcWwq6oDvUu3aRImS2"
   },
   "board3": {
     "name": "uncleIrohMemes",
     "description": "This is a board with memes showing why uncle iroh is the best",
-    "id": "12345",
     "userId": "dsN6vxguXnTcWwq6oDvUu3aRImS2"
   }
 }
