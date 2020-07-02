@@ -6,7 +6,9 @@ const displayBoards = () => {
   boardData.getBoards()
     .then((boards) => {
       console.error('get boards worked', boards);
-      let domString = '';
+      let domString = `
+      <div class="d-flex flex-wrap">
+      `;
 
       boards.forEach((board) => {
         domString += boardPrint.boardMaker(board);
