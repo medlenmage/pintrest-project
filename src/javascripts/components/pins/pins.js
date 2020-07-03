@@ -1,12 +1,12 @@
-const pinMaker = () => {
+const pinMaker = (pin) => {
   const domString = `
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
+    <div class="col-3">
+      <div class="card border-0 rounded-0 bg-dark text-light" id=${pin.id}>
+        <img src="${pin.imgUrl}">
+        <div class="card-header text-center"><h5>${pin.name}</h5></div>
+        <p>${pin.description}</p>
+      </div>
+    </div>
   `;
   return domString;
 };

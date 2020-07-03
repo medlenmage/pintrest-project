@@ -5,6 +5,7 @@ import '../styles/main.scss';
 import auth from './components/auth/auth';
 import sign from './helpers/data/authData';
 import boardPrint from './components/displayBoards/displayBoards';
+import pins from './components/displayPins/displayPins';
 
 const init = () => {
   firebase.initializeApp(apiKeys.firebaseConfig);
@@ -12,6 +13,7 @@ const init = () => {
   auth.logoutEvent();
   sign.checkLoginStatus();
   boardPrint.displayBoards();
+  pins.printPins();
 };
 
 init();
