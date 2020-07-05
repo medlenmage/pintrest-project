@@ -1,18 +1,21 @@
 import boardData from './boardData';
 import userData from './userData';
 import userBoardData from './userBoards';
+// import pinData from './pinsData';
+// import utilsPin from '../../components/pins';
 
-const getSingleUserBoard = (userId) => new Promise((resolve, reject) => {
-  userData.getUserById(userId)
-    .then((response) => {
-      const user = response.data;
-      user.id = userId;
-      user.boards = [];
-      userBoardData.getUserBoards(user.id).then((userBoards) => {
-        boardData.getBoards().then((allBoards) => {
-          userBoards.forEach((userBoard) => {
-            const usrBoard = allBoards.find((b) => b.id === userBoard.boardId);
-            user.boards.push(usrBoard);
+const getSingleUserBoard = (user) => new Promise((resolve, reject) => {
+  const userId = userData.getUserById(user)
+    .then(() => {
+      // const memeUser = response.data;
+      // console.error(user);
+      // memeUser.id = userId;
+      userId.boards = [];
+      userBoardData.getUserBoards(userId).then((memePins) => {
+        boardData.getBoards().then((allMemes) => {
+          allMemes.forEach((userMemes) => {
+            const userBoard = memePins.find((b) => b.id === userMemes.boardId);
+            userId.boards.push(userBoard);
           });
           resolve(user);
         });

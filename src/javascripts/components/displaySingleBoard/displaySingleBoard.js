@@ -2,17 +2,23 @@ import smash from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
 import displayPins from '../pins/pins';
 
-const displaySingleBoard = (e) => {
+const buildMemes = (e) => {
   const boardId = e.target.closest('.card').id;
   smash.getSingleUserBoard(boardId)
-    .then((user) => {
-      let domString = '<div class="d-flex flex-wrap">';
-      user.boards.forEach(() => {
-        domString += displayPins.pinMaker();
+    .then((userId) => {
+      let domString = '';
+      userId.boards.forEach((meme) => {
+        domString += displayPins.pinMaker(meme);
       });
       utils.printToDom('#pins', domString);
     })
-    .catch((err) => console.error('problem with single board', err));
+    .catch((err) => console.error(err));
 };
 
-export default { displaySingleBoard };
+const displayMemes = () => {
+  $('body').click('#board1', buildMemes);
+  // $('#board2').click(buildMemes);
+  // $('#board3').click(buildMemes);
+};
+
+export default { buildMemes, displayMemes };

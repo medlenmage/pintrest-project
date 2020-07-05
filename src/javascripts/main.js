@@ -5,6 +5,7 @@ import '../styles/main.scss';
 import auth from './components/auth/auth';
 import sign from './helpers/data/authData';
 import boardPrint from './components/displayBoards/displayBoards';
+import singleMemes from './components/displaySingleBoard/displaySingleBoard';
 // import pins from './components/displayPins/displayPins';
 
 const init = () => {
@@ -13,7 +14,7 @@ const init = () => {
   auth.logoutEvent();
   sign.checkLoginStatus();
   boardPrint.displayBoards();
-  // pins.printPins();
+  singleMemes.displayMemes();
 };
 
 init();
