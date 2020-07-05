@@ -2,16 +2,16 @@
   "user1": {
     "username" :"Joshua246",
     "tagline" :"With great power comes the High Ground",
-    "id" :"dsN6vxguXnTcWwq6oDvUu3aRImS2"
+    "uid" :"dsN6vxguXnTcWwq6oDvUu3aRImS2"
   },
   "user2": {
     "username" :"Aragorn36",
     "tagline" :"The beacons have been lit!",
-    "id" :"13579"
+    "uid" :"13579"
   },
   "user3": {
     "username" :"Uncle Iroh",
     "tagline" :"Sexy and i know it. Also would you like some tea?",
-    "id" :"97531"
+    "uid" :"97531"
   }
 }

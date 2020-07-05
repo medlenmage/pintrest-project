@@ -1,14 +1,14 @@
 {
   "userBoard1": {
     "boardId": "board1",
-    "userUid": "dsN6vxguXnTcWwq6oDvUu3aRImS2"
+    "uid": "dsN6vxguXnTcWwq6oDvUu3aRImS2"
   },
   "userBoard2": {
     "boardId": "board2",
-    "userUid": "dsN6vxguXnTcWwq6oDvUu3aRImS2"
+    "uid": "dsN6vxguXnTcWwq6oDvUu3aRImS2"
   },
   "userBoard3": {
     "boardId": "board3",
-    "userUid": "dsN6vxguXnTcWwq6oDvUu3aRImS2"
+    "uid": "dsN6vxguXnTcWwq6oDvUu3aRImS2"
   }
 }

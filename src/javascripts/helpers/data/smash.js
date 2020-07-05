@@ -6,20 +6,21 @@ import userBoardData from './userBoards';
 
 const getSingleUserBoard = (user) => new Promise((resolve, reject) => {
   const userId = userData.getUserById(user)
-    .then(() => {
-      // const memeUser = response.data;
+    .then((response) => {
+      const memeUser = response.data;
       // console.error(user);
-      // memeUser.id = userId;
+      memeUser.id = user;
       userId.boards = [];
-      userBoardData.getUserBoards(userId).then((memePins) => {
+      userBoardData.getUserBoards(memeUser.uid).then((memePins) => {
         boardData.getBoards().then((allMemes) => {
-          allMemes.forEach((userMemes) => {
-            const userBoard = memePins.find((b) => b.id === userMemes.boardId);
+          memePins.forEach((userMemes) => {
+            const userBoard = allMemes.find((b) => b.id === userMemes.boardId);
             userId.boards.push(userBoard);
           });
-          resolve(user);
+          resolve(memeUser);
         });
       });
+      console.error(userId.boards);
     })
     .catch((err) => reject(err));
 });

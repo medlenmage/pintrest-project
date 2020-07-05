@@ -4,6 +4,7 @@ import displayPins from '../pins/pins';
 
 const buildMemes = (e) => {
   const boardId = e.target.closest('.card').id;
+  console.error(boardId);
   smash.getSingleUserBoard(boardId)
     .then((userId) => {
       let domString = '';
