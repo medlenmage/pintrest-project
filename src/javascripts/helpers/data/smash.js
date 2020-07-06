@@ -25,4 +25,17 @@ const getSingleUserBoard = (user) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getSingleUserBoard };
+const removeBoard = (boardId) => new Promise((resolve, reject) => {
+  boardData.deleteBoard(boardId)
+    .then(() => {
+      userBoardData.getUserBoards(boardId).then((userBoards) => {
+        userBoards.forEach((userMemes) => {
+          userBoardData.getUserBoards(userMemes.id);
+        });
+        resolve();
+      });
+    })
+    .catch((err) => reject(err));
+});
+
+export default { getSingleUserBoard, removeBoard };
