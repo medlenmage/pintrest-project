@@ -8,7 +8,7 @@ const getSingleUserBoard = (user) => new Promise((resolve, reject) => {
   const userId = userData.getUserById(user)
     .then((response) => {
       const memeUser = response.data;
-      // console.error(user);
+      console.error(user);
       memeUser.id = user;
       userId.boards = [];
       userBoardData.getUserBoards(memeUser.uid).then((memePins) => {
