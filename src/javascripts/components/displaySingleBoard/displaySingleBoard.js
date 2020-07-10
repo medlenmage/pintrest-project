@@ -19,8 +19,10 @@ const buildMemes = (e) => {
   const boardId = e.target.closest('.card').id;
   pinsData.getPinsByBoardId(boardId)
     .then((pins) => {
+      console.warn(pins);
       let domString = '';
-      pins.Pins.forEach((meme) => {
+      pins.forEach((meme) => {
+        console.error(meme);
         domString += displayPins.pinMaker(meme);
       });
       utils.printToDom('#pins', domString);
