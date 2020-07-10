@@ -1,17 +1,20 @@
+import axios from 'axios';
 import boardData from './boardData';
-import userData from './userData';
+// import userData from './userData';
 import userBoardData from './userBoards';
+import apiKeys from '../apiKeys.json';
 // import pinData from './pinsData';
 // import utilsPin from '../../components/pins';
+const baseUrl = apiKeys.firebaseConfig.databaseURL;
 
-const getSingleUserBoard = (user) => new Promise((resolve, reject) => {
-  const userId = userData.getUserById(user)
+const getSingleUserBoard = (userId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/Boards.json?orderBy="uid"&equalTo="${userId}"`)
     .then((response) => {
       const memeUser = response.data;
-      console.error(user);
-      memeUser.id = user;
-      userId.boards = [];
-      userBoardData.getUserBoards(memeUser.uid).then((memePins) => {
+      console.error(memeUser);
+      memeUser.id = userId;
+      memeUser.boards = [];
+      userBoardData.getUserBoards(memeUser).then((memePins) => {
         boardData.getBoards().then((allMemes) => {
           memePins.forEach((userMemes) => {
             const userBoard = allMemes.find((b) => b.id === userMemes.boardId);
