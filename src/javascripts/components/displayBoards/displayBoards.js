@@ -19,7 +19,7 @@ const displayBoards = () => {
   boardData.getBoards()
     .then((boards) => {
       let domString = `
-      <div class="d-flex flex-wrap">
+      <div class="d-flex flex-wrap" id="hide-board">
       `;
 
       boards.forEach((board) => {

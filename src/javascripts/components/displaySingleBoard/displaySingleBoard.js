@@ -20,7 +20,9 @@ const buildMemes = (e) => {
   pinsData.getPinsByBoardId(boardId)
     .then((pins) => {
       console.warn(pins);
-      let domString = '';
+      let domString = `<h3 class="pins-header">Pins</h3>
+      <div class="d-flex flex-wrap">
+      `;
       pins.forEach((meme) => {
         console.error(meme);
         domString += displayPins.pinMaker(meme);
@@ -30,10 +32,19 @@ const buildMemes = (e) => {
     .catch((err) => console.error("get pins by id didn't work", err));
 };
 
+const hideBoards = (e) => {
+  e.preventDefault();
+  $('#boards').addClass('hide');
+  $('#pins').removeClass('hide');
+};
+
 const displayMemes = () => {
-  $('body').click('#board1', buildMemes);
-  // $('#board2').click(buildMemes);
-  // $('#board3').click(buildMemes);
+  $('body').on('click', '#board1', buildMemes);
+  $('body').on('click', '#board1', hideBoards);
+  $('body').on('click', '#board2', buildMemes);
+  $('body').on('click', '#board2', hideBoards);
+  $('body').on('click', '#board3', buildMemes);
+  $('body').on('click', '#board3', hideBoards);
 };
 
 export default { buildMemes, displayMemes };

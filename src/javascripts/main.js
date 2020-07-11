@@ -6,6 +6,7 @@ import auth from './components/auth/auth';
 import sign from './helpers/data/authData';
 import boardPrint from './components/displayBoards/displayBoards';
 import singleMemes from './components/displaySingleBoard/displaySingleBoard';
+import returnBoards from './components/Home/home';
 // import pins from './components/displayPins/displayPins';
 
 const init = () => {
@@ -15,6 +16,7 @@ const init = () => {
   sign.checkLoginStatus();
   boardPrint.displayBoards();
   singleMemes.displayMemes();
+  returnBoards.returnBoardsEvent();
 };
 
 init();
