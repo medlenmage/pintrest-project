@@ -1,0 +1,41 @@
+[debug] [2020-07-06T22:02:15.599Z] ----------------------------------------------------------------------
+[debug] [2020-07-06T22:02:15.601Z] Command:       /usr/bin/node /home/joshua246/.npm-global/bin/firebase init
+[debug] [2020-07-06T22:02:15.602Z] CLI Version:   8.4.3
+[debug] [2020-07-06T22:02:15.602Z] Platform:      linux
+[debug] [2020-07-06T22:02:15.602Z] Node Version:  v13.14.0
+[debug] [2020-07-06T22:02:15.603Z] Time:          Mon Jul 06 2020 17:02:15 GMT-0500 (Central Daylight Time)
+[debug] [2020-07-06T22:02:15.603Z] ----------------------------------------------------------------------
+[debug] [2020-07-06T22:02:15.603Z] 
+[debug] [2020-07-06T22:02:15.611Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-07-06T22:02:15.612Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /mnt/c/Users/joshu/workspace/data_driven_apps/exercises/pintrest-project
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2020-07-06T22:02:56.101Z] TypeError: Cannot read property 'setRawMode' of null
+    at ReadStream.setRawMode (tty.js:75:28)
+    at Interface._setRawMode (readline.js:298:16)
+    at Interface.close (readline.js:421:10)
+    at ReadStream.ontermend (readline.js:209:10)
+    at ReadStream.emit (events.js:327:22)
+    at ReadStream.EventEmitter.emit (domain.js:485:12)
+    at endReadableNT (_stream_readable.js:1201:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
