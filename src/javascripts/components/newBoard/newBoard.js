@@ -14,6 +14,7 @@ const newBoards = () => {
     <button type="button" class="btn btn-dark add-board">Add Board</button>
   </form>
   `;
+  $('#new-board-form').removeClass('hide');
   utils.printToDom('#new-board-form', domString);
   console.error('this is working');
 };
