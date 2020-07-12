@@ -17,6 +17,7 @@ const init = () => {
   boardPrint.displayBoards();
   singleMemes.displayMemes();
   returnBoards.returnBoardsEvent();
+  singleMemes.deletePinEvent();
 };
 
 init();

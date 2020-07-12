@@ -1,21 +1,21 @@
-// import smash from '../../helpers/data/smash';
+import smash from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
 import displayPins from '../pins/pins';
 import pinsData from '../../helpers/data/pinsData';
 
+const deletePinEvent = (e) => {
+  const pinId = e.target.closest('.card').id;
+  console.error(pinId);
+  smash.removePin(pinId)
+    .then(() => {
+      // eslint-disable-next-line no-use-before-define
+      buildMemes();
+      utils.printToDom('#pins', '');
+    })
+    .catch((err) => console.error('could not delete board', err));
+};
+
 const buildMemes = (e) => {
-  // find user id somehow of board i clicked on
-  // eslint-disable-next-line prefer-destructuring
-  // const userId = e.target.closest('.card').dataset.userId;
-  // smash.getSingleUserBoard(userId)
-  //   .then((memeUser) => {
-  //     let domString = '';
-  //     memeUser.boards.forEach((meme) => {
-  //       domString += displayPins.pinMaker(meme);
-  //     });
-  //     utils.printToDom('#pins', domString);
-  //   })
-  //   .catch((err) => console.error(err));
   const boardId = e.target.closest('.card').id;
   pinsData.getPinsByBoardId(boardId)
     .then((pins) => {
@@ -28,6 +28,7 @@ const buildMemes = (e) => {
         domString += displayPins.pinMaker(meme);
       });
       utils.printToDom('#pins', domString);
+      $('body').on('click', '.delete-pin', deletePinEvent);
     })
     .catch((err) => console.error("get pins by id didn't work", err));
 };
@@ -47,4 +48,4 @@ const displayMemes = () => {
   $('body').on('click', '#board3', hideBoards);
 };
 
-export default { buildMemes, displayMemes };
+export default { buildMemes, displayMemes, deletePinEvent };
