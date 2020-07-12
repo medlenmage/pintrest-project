@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import boardEvent from '../../components/displayBoards/displayBoards';
 
 const getSignInBtn = $('#sign-in');
 const getSignOutBtn = $('#sign-out');
@@ -13,6 +14,8 @@ const checkLoginStatus = () => {
       getSignOutBtn.removeClass('hide');
       getLoggedInHeader.addClass('hide');
       getLoggedOutHeader.removeClass('hide');
+
+      boardEvent.boardEvents();
     } else {
       getSignInBtn.removeClass('hide');
       getSignOutBtn.addClass('hide');

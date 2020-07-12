@@ -1,14 +1,21 @@
-const newBoard = () => {
+import utils from '../../helpers/utils';
+
+const newBoards = () => {
   const domString = `
     <form>
     <div class="form-group">
-      <label for="formGroupExampleInput">Example label</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+      <label for="board-name">Board Name</label>
+      <input type="text" class="form-control" id="board-name" placeholder="Board Name">
     </div>
-    <button type="button" class="btn btn-dark">Dark</button>
+    <div class="form-group">
+      <label for="board-descrip">Board Description</label>
+      <input type="text" class="form-control" id="board-descrip" placeholder="Board Description">
+    </div>
+    <button type="button" class="btn btn-dark add-board">Add Board</button>
   </form>
   `;
-  return domString;
+  utils.printToDom('#new-board-form', domString);
+  console.error('this is working');
 };
 
-export default { newBoard };
+export default { newBoards };

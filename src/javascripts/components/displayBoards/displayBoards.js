@@ -2,6 +2,7 @@ import boardPrint from '../board/board';
 import utils from '../../helpers/utils';
 import boardData from '../../helpers/data/boardData';
 import smash from '../../helpers/data/smash';
+import newBoard from '../newBoard/newBoard';
 
 const deleteBoardEvent = (e) => {
   const boardId = e.target.closest('.card').id;
@@ -31,4 +32,9 @@ const displayBoards = () => {
     .catch((err) => console.error('get boards broke :(', err));
 };
 
-export default { displayBoards, deleteBoardEvent };
+const boardEvents = () => {
+  $('body').on('click', '.delete-board', deleteBoardEvent);
+  $('body').on('click', '#new-board', newBoard.newBoards);
+};
+
+export default { displayBoards, boardEvents };
