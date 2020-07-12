@@ -1,50 +1,72 @@
-// import smash from '../../helpers/data/smash';
+import smash from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
 import displayPins from '../pins/pins';
 import pinsData from '../../helpers/data/pinsData';
+import newPins from '../newPin/newPin';
+
+const deletePinEvent = (e) => {
+  const pinId = e.target.closest('.card').id;
+  console.error(pinId);
+  smash.removePin(pinId)
+    .then(() => {
+      // eslint-disable-next-line no-use-before-define
+      buildMemes();
+      utils.printToDom('#pins', '');
+    })
+    .catch((err) => console.error('could not delete board', err));
+};
 
 const buildMemes = (e) => {
-  // find user id somehow of board i clicked on
-  // eslint-disable-next-line prefer-destructuring
-  // const userId = e.target.closest('.card').dataset.userId;
-  // smash.getSingleUserBoard(userId)
-  //   .then((memeUser) => {
-  //     let domString = '';
-  //     memeUser.boards.forEach((meme) => {
-  //       domString += displayPins.pinMaker(meme);
-  //     });
-  //     utils.printToDom('#pins', domString);
-  //   })
-  //   .catch((err) => console.error(err));
   const boardId = e.target.closest('.card').id;
   pinsData.getPinsByBoardId(boardId)
     .then((pins) => {
-      console.warn(pins);
       let domString = `<h3 class="pins-header">Pins</h3>
       <div class="d-flex flex-wrap">
       `;
       pins.forEach((meme) => {
-        console.error(meme);
         domString += displayPins.pinMaker(meme);
       });
       utils.printToDom('#pins', domString);
+      $('body').on('click', '.delete-pin', deletePinEvent);
     })
     .catch((err) => console.error("get pins by id didn't work", err));
 };
 
-const hideBoards = (e) => {
+const addNewPinEvent = (e) => {
+  e.preventDefault();
+
+  const newMemes = {
+    description: $('#pin-descrip').val(),
+    imgUrl: $('#pin-img').val(),
+    name: $('#pin-title').val(),
+  };
+
+  pinsData.addPin(newMemes)
+    .then(() => {
+      buildMemes();
+    })
+    .catch((err) => console.error("couldn't add pin", err));
+  $('#new-pin-form').addClass('hide');
+};
+
+const hideEvents = (e) => {
   e.preventDefault();
   $('#boards').addClass('hide');
   $('#pins').removeClass('hide');
+  $('#new-board').addClass('hide');
+  $('#new-board-form').addClass('hide');
+  $('#new-pin').removeClass('hide');
 };
 
-const displayMemes = () => {
+const memeEvents = () => {
   $('body').on('click', '#board1', buildMemes);
-  $('body').on('click', '#board1', hideBoards);
+  $('body').on('click', '#board1', hideEvents);
   $('body').on('click', '#board2', buildMemes);
-  $('body').on('click', '#board2', hideBoards);
+  $('body').on('click', '#board2', hideEvents);
   $('body').on('click', '#board3', buildMemes);
-  $('body').on('click', '#board3', hideBoards);
+  $('body').on('click', '#board3', hideEvents);
+  $('body').on('click', '#new-pin', newPins.newPin);
+  $('body').on('click', '.add-pin', addNewPinEvent);
 };
 
-export default { buildMemes, displayMemes };
+export default { buildMemes, memeEvents, deletePinEvent };

@@ -15,8 +15,9 @@ const init = () => {
   auth.logoutEvent();
   sign.checkLoginStatus();
   boardPrint.displayBoards();
-  singleMemes.displayMemes();
   returnBoards.returnBoardsEvent();
+  singleMemes.deletePinEvent();
+  boardPrint.boardEvents();
 };
 
 init();
