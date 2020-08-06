@@ -15,6 +15,10 @@ const newPin = () => {
       <label for="pin-title">Pin Title</label>
       <input type="text" class="form-control" id="pin-title" placeholder="Pin Title Here">
     </div>
+    <div class="form-group">
+      <label for="pin-board">Pin Title</label>
+      <input type="text" class="form-control" id="pin-board" placeholder="Board goes here">
+    </div>
     <button type="button" class="btn btn-dark add-pin">Add Pin</button>
   </form>
   `;

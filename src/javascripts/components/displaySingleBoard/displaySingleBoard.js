@@ -5,8 +5,7 @@ import pinsData from '../../helpers/data/pinsData';
 import newPins from '../newPin/newPin';
 
 const deletePinEvent = (e) => {
-  const pinId = e.target.closest('.card').id;
-  console.error(pinId);
+  const pinId = e.target.closest('.card-pin').id;
   smash.removePin(pinId)
     .then(() => {
       // eslint-disable-next-line no-use-before-define
@@ -16,8 +15,8 @@ const deletePinEvent = (e) => {
     .catch((err) => console.error('could not delete board', err));
 };
 
-const buildMemes = (e) => {
-  const boardId = e.target.closest('.card').id;
+const buildMemes = (event) => {
+  const boardId = event.target.closest('.card').id;
   pinsData.getPinsByBoardId(boardId)
     .then((pins) => {
       let domString = `<h3 class="pins-header">Pins</h3>
@@ -26,6 +25,7 @@ const buildMemes = (e) => {
       pins.forEach((meme) => {
         domString += displayPins.pinMaker(meme);
       });
+      domString += '<div id="pin-edit-form"></div>';
       utils.printToDom('#pins', domString);
       $('body').on('click', '.delete-pin', deletePinEvent);
     })
@@ -39,11 +39,13 @@ const addNewPinEvent = (e) => {
     description: $('#pin-descrip').val(),
     imgUrl: $('#pin-img').val(),
     name: $('#pin-title').val(),
+    boardId: $('#pin-board').val(),
   };
 
   pinsData.addPin(newMemes)
     .then(() => {
       buildMemes();
+      utils.printToDom('#pins', ' ');
     })
     .catch((err) => console.error("couldn't add pin", err));
   $('#new-pin-form').addClass('hide');
