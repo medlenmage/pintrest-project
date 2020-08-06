@@ -2,10 +2,10 @@ import boardPrint from '../board/board';
 import utils from '../../helpers/utils';
 import boardData from '../../helpers/data/boardData';
 import smash from '../../helpers/data/smash';
+import newBoard from '../newBoard/newBoard';
 
 const deleteBoardEvent = (e) => {
   const boardId = e.target.closest('.card').id;
-  console.error(boardId);
   smash.removeBoard(boardId)
     .then(() => {
       // eslint-disable-next-line no-use-before-define
@@ -31,4 +31,26 @@ const displayBoards = () => {
     .catch((err) => console.error('get boards broke :(', err));
 };
 
-export default { displayBoards, deleteBoardEvent };
+const addNewBoardEvent = (e) => {
+  e.preventDefault();
+
+  const newBoards = {
+    description: $('#board-descrip').val(),
+    name: $('#board-name').val(),
+  };
+
+  boardData.addBoard(newBoards)
+    .then(() => {
+      displayBoards();
+    })
+    .catch((err) => console.error("couldn't add board", err));
+  $('#new-board-form').addClass('hide');
+};
+
+const boardEvents = () => {
+  $('body').on('click', '.delete-board', deleteBoardEvent);
+  $('body').on('click', '#new-board', newBoard.newBoards);
+  $('body').on('click', '.add-board', addNewBoardEvent);
+};
+
+export default { displayBoards, boardEvents };

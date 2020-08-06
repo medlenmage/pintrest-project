@@ -3,7 +3,7 @@ import boardData from './boardData';
 // import userData from './userData';
 import userBoardData from './userBoards';
 import apiKeys from '../apiKeys.json';
-// import pinData from './pinsData';
+import pinData from './pinsData';
 // import utilsPin from '../../components/pins';
 const baseUrl = apiKeys.firebaseConfig.databaseURL;
 
@@ -41,4 +41,17 @@ const removeBoard = (boardId) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getSingleUserBoard, removeBoard };
+const removePin = (pinId) => new Promise((resolve, reject) => {
+  pinData.deletePin(pinId)
+    .then(() => {
+      pinData.getPins(pinId).then((pins) => {
+        pins.forEach((pin) => {
+          pins.getPins(pin.id);
+        });
+        resolve();
+      });
+    })
+    .catch((err) => reject(err));
+});
+
+export default { getSingleUserBoard, removeBoard, removePin };
