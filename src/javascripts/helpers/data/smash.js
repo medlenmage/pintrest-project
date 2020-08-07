@@ -46,7 +46,7 @@ const removePin = (pinId) => new Promise((resolve, reject) => {
     .then(() => {
       pinData.getPins(pinId).then((pins) => {
         pins.forEach((pin) => {
-          pins.getPins(pin.id);
+          pinData.getPins(pin.id);
         });
         resolve();
       });

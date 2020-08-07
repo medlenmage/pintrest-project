@@ -11,6 +11,7 @@ const changeBoard = () => {
   </form>
   `;
   utils.printToDom('#pin-edit-form', domString);
+  console.error('this thing working?');
 };
 
 export default { changeBoard };

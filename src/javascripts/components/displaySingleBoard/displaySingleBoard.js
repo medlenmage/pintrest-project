@@ -8,15 +8,15 @@ const deletePinEvent = (e) => {
   const pinId = e.target.closest('.card-pin').id;
   smash.removePin(pinId)
     .then(() => {
+      const getBoardId = e.target.closest('.board-id').id;
       // eslint-disable-next-line no-use-before-define
-      buildMemes();
+      buildMemes(getBoardId);
       utils.printToDom('#pins', '');
     })
     .catch((err) => console.error('could not delete board', err));
 };
 
-const buildMemes = (event) => {
-  const boardId = event.target.closest('.card').id;
+const buildMemes = (boardId) => {
   pinsData.getPinsByBoardId(boardId)
     .then((pins) => {
       let domString = `<h3 class="pins-header">Pins</h3>
@@ -25,11 +25,14 @@ const buildMemes = (event) => {
       pins.forEach((meme) => {
         domString += displayPins.pinMaker(meme);
       });
-      domString += '<div id="pin-edit-form"></div>';
       utils.printToDom('#pins', domString);
-      $('body').on('click', '.delete-pin', deletePinEvent);
     })
     .catch((err) => console.error("get pins by id didn't work", err));
+};
+
+const pinBoardId = (e) => {
+  const boardId = e.target.closest('.card').id;
+  buildMemes(boardId);
 };
 
 const addNewPinEvent = (e) => {
@@ -61,7 +64,7 @@ const hideEvents = (e) => {
 };
 
 const memeEvents = () => {
-  $('body').on('click', '#board1', buildMemes);
+  $('body').on('click', '#board1', pinBoardId);
   $('body').on('click', '#board1', hideEvents);
   $('body').on('click', '#board2', buildMemes);
   $('body').on('click', '#board2', hideEvents);
@@ -69,6 +72,7 @@ const memeEvents = () => {
   $('body').on('click', '#board3', hideEvents);
   $('body').on('click', '#new-pin', newPins.newPin);
   $('body').on('click', '.add-pin', addNewPinEvent);
+  $('body').on('click', '.delete-pin', deletePinEvent);
 };
 
-export default { buildMemes, memeEvents, deletePinEvent };
+export default { buildMemes, memeEvents };
