@@ -6,6 +6,7 @@ const pinMaker = (meme) => {
         <div class="card-header text-center"><h5>${meme.name}</h5></div>
         <p>${meme.description}</p>
         <button class="btn btn-danger delete-pin"><i class="far fa-trash-alt"></i> Delete Pin</button>
+        <button type="button" class="btn btn-warning update-pin" id="edit-pin">Change Board</button>
       </div>
     </div>
   `;

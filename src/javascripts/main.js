@@ -7,7 +7,6 @@ import sign from './helpers/data/authData';
 import boardPrint from './components/displayBoards/displayBoards';
 import returnBoards from './components/Home/home';
 import pinForm from './components/updatePin/updatePin';
-// import pins from './components/displayPins/displayPins';
 
 const init = () => {
   firebase.initializeApp(apiKeys.firebaseConfig);
@@ -15,7 +14,7 @@ const init = () => {
   auth.logoutEvent();
   sign.checkLoginStatus();
   boardPrint.displayBoards();
-  pinForm.changeBoard();
+  pinForm.updateEvents();
   returnBoards.returnBoardsEvent();
 };
 
